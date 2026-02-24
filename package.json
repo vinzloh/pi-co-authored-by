@@ -1,0 +1,20 @@
+{
+  "name": "pi-co-authored-by",
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": [
+    "pi-package"
+  ],
+  "pi": {
+    "extensions": [
+      "./extensions"
+    ]
+  },
+  "scripts": {},
+  "devDependencies": {
+    "@mariozechner/pi-coding-agent": "^0.52"
+  },
+  "peerDependencies": {
+    "@mariozechner/pi-coding-agent": "*"
+  }
+}
