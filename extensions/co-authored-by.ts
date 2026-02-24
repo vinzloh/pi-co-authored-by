@@ -8,9 +8,7 @@ export default function (pi: ExtensionAPI) {
     const cmd = event.input.command;
     if (!isGitCommit(cmd)) return;
 
-    const model = ctx.model;
-    const modelName = model ? (model.name || `${model.provider}/${model.id}`) : "unknown";
-
+    const modelName = ctx.model ? (`${ctx.model.provider}/${ctx.model.id}`) : "unknown";
     event.input.command = appendFooter(cmd, modelName, VERSION);
   });
 }
@@ -21,5 +19,5 @@ function isGitCommit(cmd: string): boolean {
 }
 
 function appendFooter(cmd: string, modelName: string, piVersion: string): string {
-  return `${cmd.trimEnd()} -m "" -m $'${`Co-Authored-By: ${modelName} With: pi ${piVersion}`}'`;
+  return `${cmd.trimEnd()} -m "" -m $'${`Co-Authored-By: pi@${piVersion} + ${modelName} `}'`;
 }
